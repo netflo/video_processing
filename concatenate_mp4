@@ -1,0 +1,23 @@
+
+#./youtube-dl --username "user" --password "pass" --download-archive already-downloaded.list --sleep-interval 120 "http://link"
+
+##joins files
+
+ls -R  | grep "'"
+ls > fileslist
+rm filesorderlist2
+rm filesorderlist
+j=1
+COUNTER=1
+for i in `cut -d' ' -f2 already-downloaded.list`
+do 
+  echo "file "`cat fileslist |grep "$i"` >>filesorderlist2
+  cat fileslist |grep "$i" 
+	nn=`printf %003d $COUNTER`
+	mv "`cat fileslist |grep "$i"`" $nn
+	ffmpeg -i `echo $nn` -vf setdar=16/9 -video_track_timescale 29971 -ac 1 -strict -2 `echo $nn`".mp4"
+	echo "file "$nn".mp4" >>filesorderlist
+	COUNTER=$[$COUNTER +1]
+done 
+
+ffmpeg -f concat -safe 0 -i filesorderlist -c copy ./output.mp4
