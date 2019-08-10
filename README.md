@@ -24,3 +24,11 @@ ffmpeg -f concat -safe 0 -i mylist.txt -c copy output
 
 Broken mkv or unknown codec try:  
 ffmpeg -i "example input video.mov" -vcodec h264 -b:v 10485760 -acodec aac -b:a 327680 "transcoded video.mp4"
+
+
+Changing the bitrate:
+
+discover what it is today with b/r or bitrate or b, usually 10,000kb/s with:  ffmpeg -i  file
+
+and set what it should be around with    -b 1000k
+ffmpeg -i in.mp4 -b 1000k out.mp4
