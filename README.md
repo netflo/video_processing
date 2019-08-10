@@ -33,3 +33,9 @@ discover what it is today with b/r or bitrate or b, usually 10,000kb/s with:  ff
 and set what it should be around with    -b 1000k
 
 =>   ffmpeg -i input.mp4 -b:v 1000k -vcodec h264 -acodec ac3 output.mp4
+
+
+reduce frame rate:
+ To change the output frame rate to 30 fps, use the following command:
+
+ffmpeg -i <input> -filter:v fps=fps=30 <output>
