@@ -31,4 +31,5 @@ Changing the bitrate:
 discover what it is today with b/r or bitrate or b, usually 10,000kb/s with:  ffmpeg -i  file
 
 and set what it should be around with    -b 1000k
-ffmpeg -i in.mp4 -b 1000k out.mp4
+
+=>   ffmpeg -i input.mp4 -b:v 1000k -vcodec h264 -acodec ac3 output.mp4
