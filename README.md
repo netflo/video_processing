@@ -20,3 +20,7 @@ ffmpeg -i titlefile.mp4 -vf setdar=16/9 -video_track_timescale 29971 -ac 1 newti
 
 #then joining those baseline MP4s:
 ffmpeg -f concat -safe 0 -i mylist.txt -c copy output
+
+
+Broken mkv or unknown codec try:  
+ffmpeg -i "example input video.mov" -vcodec h264 -b:v 10485760 -acodec aac -b:a 327680 "transcoded video.mp4"
