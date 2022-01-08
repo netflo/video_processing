@@ -39,3 +39,11 @@ reduce frame rate:
  To change the output frame rate to 30 fps, use the following command:
 
 ffmpeg -i <input> -filter:v fps=fps=30 <output>
+
+ 
+ 
+ 
+ 
+ 
+## converting Videos to iPad format for an old iPad2 on res. of 1024x728/landscape
+ffmpeg -i input.mp4 -vcodec libx264 -profile:v main -level 3.1 -preset medium -crf 23 -x264-params ref=4 -acodec libmp3lame -movflags +faststart output.mp4
