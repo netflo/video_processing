@@ -45,5 +45,6 @@ ffmpeg -i <input> -filter:v fps=fps=30 <output>
  
  
  
-## converting Videos to iPad format for an old iPad2 on res. of 1024x728/landscape
 ffmpeg -i input.mp4 -vcodec libx264 -profile:v main -level 3.1 -preset medium -crf 23 -x264-params ref=4 -acodec libmp3lame -movflags +faststart output.mp4
+## converting Videos to iPad format for an old iPad2 on res. of 1024x728/landscape
+ffmpeg -i How_Home_Plumbing_works.mkv -vf scale=-1:720 -c:v libx264 -crf 18 -preset medium -c:a copy How_Home_Plumbing_works3.mp4
